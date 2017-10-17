@@ -1,10 +1,10 @@
 test:
     driver: mysql
-    open: tcp:db:3306*media/developer/password
+    open: tcp:localhost:3306*media/developer/password
 
 development:
     driver: mymysql
-    open: tcp:db:3306*media/developer/password
+    open: tcp:localhost:3306*media/developer/password
     
 #production:
 #    driver: mysql
