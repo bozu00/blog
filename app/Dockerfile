@@ -5,3 +5,6 @@ RUN go get -u github.com/go-sql-driver/mysql \
       github.com/labstack/echo \
       gopkg.in/gorp.v1 \
       bitbucket.org/liamstask/goose/cmd/goose \
+      gopkg.in/godo.v2/cmd/godo \
+      github.com/pilu/fresh
+

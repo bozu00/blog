@@ -22,7 +22,7 @@ func checkErr(err error, msg string) {
 func InitDb() *gorp.DbMap {
     // connect to db using standard Go database/sql API
     // use whatever database/sql driver you wish
-    db, err := sql.Open("mysql", "developer:password@tcp(localhost:3306)/media")
+    db, err := sql.Open("mysql", "developer:password@tcp(db:3306)/media")
     checkErr(err, "sql.Open failed")
 
     // construct a gorp DbMap
@@ -38,7 +38,7 @@ func MySQLConnect(host string, port int, user string, pass string, dbname string
 }
 
 func DBConnect() *sqlx.DB {
-	return MySQLConnect("localhost", 3306, "developer", "password", "media")
+	return MySQLConnect("db", 3306, "developer", "password", "media")
 }
 
 
