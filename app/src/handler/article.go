@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 	"../models"
+	"../responses"
 )
 
 func Articles(c echo.Context) error {
@@ -12,7 +13,7 @@ func Articles(c echo.Context) error {
 	articles, err := models.GetArticles(media_id, 10, 0)
 	checkErr(err, "fetch fail")
 
-	return c.JSON(http.StatusOK, responseWrap(err, articles))
+	return c.JSON(http.StatusOK, responses.SafeResponse(err, articles))
 }
 
 func Article(c echo.Context) error {
@@ -21,5 +22,5 @@ func Article(c echo.Context) error {
 	article, err := models.GetArticle(media_id, article_id)
 	checkErr(err, "fetch fail")
 
-	return c.JSON(http.StatusOK, responseWrap(err, article))
+	return c.JSON(http.StatusOK, responses.SafeResponse(err, article))
 }

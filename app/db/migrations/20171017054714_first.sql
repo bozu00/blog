@@ -43,13 +43,14 @@ CREATE TABLE `authors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
- CREATE TABLE `users` (
+CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL DEFAULT '',
   `password` varchar(100) NOT NULL,
   `first_name` varchar(50) NOT NULL DEFAULT '',
   `last_name` varchar(50) NOT NULL DEFAULT '',
   `sex` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0:unknown, 1:men, 2:women',
+  `salt` varchar(128) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
