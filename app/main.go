@@ -7,20 +7,11 @@ import (
 
 	"./src/handler"
 	"./src/services"
-	"./src/context"
 )
 
 
 func main() {
 	e := echo.New()
-
-	e.Use(func(h echo.HandlerFunc) echo.HandlerFunc {
-		return func(c echo.Context) error {
-			cc := &context.CustomContext{c, -1} // -1は存在しないユーザ
-			return h(cc)
-		}
-	})
-
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())

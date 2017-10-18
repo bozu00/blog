@@ -27,6 +27,8 @@ services:
        - "1323:1323"
    redis:
      image: "redis:alpine"
+     ports:
+       - '6379:6379'
 
    redisCommander:
      image: tenstartups/redis-commander

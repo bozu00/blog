@@ -6,8 +6,6 @@ import (
 	"net/http"
 	"strconv"
 	"github.com/ipfans/echo-session"
-	"time"
-	"fmt"
 
 	"../models"
 	"../responses"
@@ -41,24 +39,11 @@ func Login(c echo.Context) error {
 	}
 
 	// ログイン処理
-    session := session.Default(c)
 	user_id := models.GetUserIdByEmail(email)
-	token_cookie, err := c.Cookie("auth_token")
-    token := token_cookie.Value
-	if err != nil {
-		return err
-	}
-	fmt.Println(token)
-	session.Set(token, user_id)
+    session := session.Default(c)
+	session.Set("user_id", user_id)
 	session.Save()
 	
-	cookie := new(http.Cookie)
-	cookie.Name = "auth_token"
-	cookie.Value = token 
-	cookie.Expires = time.Now().Add(24 * time.Hour)
-	c.SetCookie(cookie)
-
-
 	return c.JSON(http.StatusOK, responses.SafeResponse(nil, true))
 }
 

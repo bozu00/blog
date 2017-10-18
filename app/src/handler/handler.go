@@ -10,7 +10,6 @@ import (
 
 func checkErr(err error, msg string) bool {
 	if err != nil {
-		// log.Fatalln(msg, err)
 		log.Println(msg, err)
 		return false
 	}
