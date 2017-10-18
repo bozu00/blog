@@ -1,17 +1,13 @@
 FROM golang:1.8.0
 
-RUN go get -u github.com/go-sql-driver/mysql \
-      github.com/jmoiron/sqlx \
-      github.com/labstack/echo \
-      gopkg.in/gorp.v1 \
-      bitbucket.org/liamstask/goose/cmd/goose \
-      gopkg.in/godo.v2/cmd/godo \
-      github.com/pilu/fresh \
-      github.com/gorilla/sessions \
-      github.com/labstack/echo-contrib \
-      github.com/ipfans/echo-session \
-      github.com/dgrijalva/jwt-go \
-      github.com/utahta/echo-sessions \
-      github.com/boj/redistore
-
-
+RUN go get -u github.com/go-sql-driver/mysql 
+RUN go get -u github.com/jmoiron/sqlx                  
+RUN go get -u github.com/labstack/echo                 
+RUN go get -u gopkg.in/gorp.v1                         
+RUN go get -u bitbucket.org/liamstask/goose/cmd/goose  
+RUN go get -u github.com/pilu/fresh                   
+RUN go get -u github.com/gorilla/sessions              
+RUN go get -u github.com/labstack/echo-contrib 
+RUN go get -u github.com/ipfans/echo-session           
+RUN go get -u github.com/dgrijalva/jwt-go              
+RUN go get -u github.com/boj/redistore

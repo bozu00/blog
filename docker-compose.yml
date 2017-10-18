@@ -1,42 +1,58 @@
 version: '3'
 
 services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     ports:
-       - "3306:3306"
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: root
-       MYSQL_DATABASE: media
-       MYSQL_USER: developer
-       MYSQL_PASSWORD: password
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: media
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: password
 
-   app:
-     build: ./app
-     volumes:
-       - ./app:/workdir/app
-     working_dir: /workdir/app 
-     command: fresh 
-     restart: always
-     depends_on:
-       - db
-     ports:
-       - "1323:1323"
-   redis:
-     image: "redis:alpine"
-     ports:
-       - '6379:6379'
+  app:
+    build: ./app
+    volumes:
+      - ./app:/workdir/app
+    working_dir: /workdir/app 
+    command: fresh 
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "1323:1323"
+  redis:
+    image: "redis:alpine"
+    ports:
+      - '6379:6379'
 
-   redisCommander:
-     image: tenstartups/redis-commander
-     command: --redis-host redis
-     links:
-       - redis:redis
-     ports:
-       - '8081:8081'
+  redisCommander:
+    image: tenstartups/redis-commander
+    command: --redis-host redis
+    links:
+      - redis:redis
+    ports:
+      - '8081:8081'
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    volumes:
+      - ./swagger-editor/doc/rest-api.yml:/usr/share/nginx/html/rest-api.yml
+    environment:
+      API_URL: rest-api.yml
+    ports:
+      - '8080:8080'
+
+  swagger-editor:
+    build: ./swagger-editor
+    volumes:
+      - ./swagger-editor/doc:/doc
+    ports:
+      - "8888:8765"
 
 volumes:
-    db_data:
+  db_data:
