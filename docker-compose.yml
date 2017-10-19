@@ -54,5 +54,16 @@ services:
     ports:
       - "8888:8765"
 
+  nginx:
+    build: ./nginx
+    command: sleep infinity 
+    ports:
+      - '80:80'
+
+        #  nginx2:
+        #    image: openresty/openresty:xenial
+        #    ports:
+        #      - '80:80'
+
 volumes:
   db_data:
