@@ -1,4 +1,8 @@
 
+```
+goose up 
+```
+
 [api-app](http://localhost:1323/)
 
 [redis-commander](http://localhost:8080/)
