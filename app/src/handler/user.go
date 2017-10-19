@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"strconv"
 	"github.com/ipfans/echo-session"
+	"log"
+
 
 	"../models"
 	"../responses"
@@ -42,6 +44,21 @@ func Login(c echo.Context) error {
 	user_id := models.GetUserIdByEmail(email)
     session := session.Default(c)
 	session.Set("user_id", user_id)
+	session.Save()
+	
+	return c.JSON(http.StatusOK, responses.SafeResponse(nil, true))
+}
+
+
+func Logout(c echo.Context) error {
+    session := session.Default(c)
+	_user_id := session.Get("user_id")
+	if _user_id == nil {
+		return c.JSON(http.StatusOK, responses.SafeResponse(nil, false))
+	}
+	user_id := _user_id.(int)
+	log.Printf("user %v logout\n", user_id)
+	session.Delete("user_id")
 	session.Save()
 	
 	return c.JSON(http.StatusOK, responses.SafeResponse(nil, true))

@@ -30,6 +30,7 @@ func main() {
     e.GET("/api/:media_id/article/:article_id", handler.Article)
 
     e.POST("/api/login"                       , handler.Login)
+    e.POST("/api/logout"                      , handler.Logout)
     e.POST("/api/create_user"                 , handler.CreateUser)
 
 	e.Logger.Fatal(e.Start(":1323"))
