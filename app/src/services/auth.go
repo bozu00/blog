@@ -59,7 +59,6 @@ func makeSalt() string {
 
 func AuthFailResponse(err error, res interface{}) responses.Response {
 	return responses.Response{
-		401,
 		"OK",
 		res,
 	}

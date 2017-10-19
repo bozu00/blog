@@ -1,110 +1,172 @@
-swagger: "3.0.0"
-openapi: "3.0.0"
-
-info:
-  version: 1.0.0
-  title: Blog API
-
-servers:
-  - url: http://localhost:1323
-paths:
-  /pets:
-    get:
-      summary: List all pets
-      operationId: listPets
-      tags:
-        - pets
-      parameters:
-        - name: limit
-          in: query
-          description: How many items to return at one time (max 100)
-          required: false
-          schema:
-            type: integer
-            format: int32
-      responses:
-        200:
-          description: An paged array of pets
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
-          content:
-            application/json:    
-              schema:
-                $ref: "#/components/schemas/Pets"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-    post:
-      summary: Create a pet
-      operationId: createPets
-      tags:
-        - pets
-      responses:
-        201:
-          description: Null response
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-  /pets/{petId}:
-    get:
-      summary: Info for a specific pet
-      operationId: showPetById
-      tags:
-        - pets
-      parameters:
-        - name: petId
-          in: path
+swagger: "2.0"
+info: 
+  version: "1.0.0"
+  title: "Swagger Petstore"
+  description: "A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification"
+  termsOfService: "http://localhost:1323"
+host: "localhost:1323"
+basePath: "/api"
+schemes: 
+  - "http"
+consumes: 
+  - "application/x-www-form-urlencoded"
+produces: 
+  - "application/json"
+paths: 
+  /{media_id}/articles: 
+    get: 
+      description: "記事一覧"
+      operationId: "articles"
+      produces: 
+        - "application/json"
+      parameters: 
+        - 
+          name: "media_id"
+          in: "path"
+          description: "メディアID"
           required: true
-          description: The id of the pet to retrieve
-          schema:
-            type: string
-      responses:
-        200:
-          description: Expected response to a valid request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pets"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-components:
-  schemas:
-    Pet:
-      required:
-        - id
-        - name
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-    Pets:
-      type: array
-      items:
-        $ref: "#/components/schemas/Pet"
-    Error:
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
+          type: "integer"
+        - 
+          name: "limit"
+          in: "query"
+          description: "取得件数"
+          required: false
+          type: "integer"
+
+        - 
+          name: "offset"
+          in: "query"
+          description: "開始位置"
+          required: false
+          type: "integer"
+      responses: 
+        "200":
+          description: "通常取得"
+          schema: 
+            type: "array"
+            items: 
+              $ref: "#/definitions/Pet"
+        "401":
+          description: "need authentication"
+          schema: 
+            type: "object"
+            items: 
+              $ref: "#/definitions/Pet"
+        default: 
+          description: "unexpected error"
+          schema: 
+            $ref: "#/definitions/ErrorModel"
+  /{media_id}/article/{article_id}: 
+    get: 
+      description: "記事の取得"
+      operationId: "article"
+      produces: 
+        - "application/json"
+      parameters: 
+        - 
+          name: "media_id"
+          in: "path"
+          description: "メディアID"
+          required: true
+          type: "integer"
+          format: "int64"
+        - 
+          name: "article_id"
+          in: "path"
+          description: "記事ID"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses: 
+        "200":
+          description: "通常取得"
+          schema: 
+            $ref: "#/definitions/Pet"
+        "401":
+          description: "need authentication"
+          schema: 
+            type: "object"
+            items: 
+              $ref: "#/definitions/Pet"
+        default: 
+          description: "unexpected error"
+          schema: 
+            $ref: "#/definitions/ErrorModel"
+            
+  /login:
+    post:
+      description: "ログイン"
+      consumes: 
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: email 
+          in: formData
+          description: メールアドレス
+          required: true
+          type: "string"
+        - name: password
+          in: formData
+          description: パスワード
+          required: true
+          type: "string"
+
+
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "通常取得"
+          schema: 
+            $ref: "#/definitions/Login"
+        "401":
+          description: "need authentication"
+          schema: 
+            type: "object"
+            items: 
+              $ref: "#/definitions/Pet"
+        default: 
+          description: "unexpected error"
+          schema: 
+            $ref: "#/definitions/ErrorModel"
+
+definitions: 
+  Pet: 
+    type: "object"
+    required: 
+      - "name"
+    properties: 
+      name: 
+        type: "string"
+      tag: 
+        type: "string"
+  Login: 
+    type: "object"
+    required: 
+      - "msg"
+      - "result"
+    properties: 
+      msg: 
+        type: "string"
+      result: 
+        type: "boolean"
+
+  NewPet: 
+    type: "object"
+    required: 
+      - "name"
+    properties: 
+      name: 
+        type: "string"
+      tag: 
+        type: "string"
+  ErrorModel: 
+    type: "object"
+    required: 
+      - "msg"
+      - "result"
+    properties: 
+      msg: 
+        type: "string"
+      result: 
+        type: "object"
+

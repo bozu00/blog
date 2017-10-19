@@ -16,6 +16,12 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	// for swagger
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"http://localhost:8080", "http://localhost:8888"},
+		AllowMethods: []string{echo.GET, echo.PUT, echo.POST, echo.DELETE},
+	}))
+
 	store, err := session.NewRedisStore(32, "tcp", "redis:6379", "", []byte("secret"))
 	if err != nil {
 		panic(err)
