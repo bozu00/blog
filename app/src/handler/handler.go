@@ -19,6 +19,7 @@ func checkErr(err error, msg string) bool {
 
 // Handler
 func Hello(c echo.Context) error {
+	println(c.Param("media_id"))
 	return c.String(http.StatusOK, "Hello, World!")
 }
 

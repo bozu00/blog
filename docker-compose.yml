@@ -3,6 +3,7 @@ version: '3'
 services:
   db:
     image: mysql:5.7
+    restart: always
     volumes:
       - db_data:/var/lib/mysql
     ports:
@@ -16,6 +17,7 @@ services:
 
   app:
     build: ./app
+    restart: always
     volumes:
       - ./app:/workdir/app
     working_dir: /workdir/app 
@@ -25,14 +27,21 @@ services:
       - db
     ports:
       - "1323:1323"
+
   redis:
     image: "redis:alpine"
+    restart: always
     ports:
-      - '6379:6379'
+      - "6379:6379"
+    expose:
+      - "6379"
 
   redisCommander:
     image: tenstartups/redis-commander
+    restart: always
     command: --redis-host redis
+    depends_on:
+      - redis
     links:
       - redis:redis
     ports:
@@ -40,6 +49,7 @@ services:
 
   swagger-ui:
     image: swaggerapi/swagger-ui
+    restart: always
     volumes:
       - ./swagger-editor/doc/rest-api.yml:/usr/share/nginx/html/rest-api.yml
     environment:
@@ -49,21 +59,30 @@ services:
 
   swagger-editor:
     build: ./swagger-editor
+    restart: always
     volumes:
       - ./swagger-editor/doc:/doc
     ports:
       - "8888:8765"
 
+#  nginx:
+#    build: ./nginx
+#    command: sleep infinity 
+#    ports:
+#      - '80:80'
+
   nginx:
-    build: ./nginx
-    command: sleep infinity 
+    image: openresty/openresty:alpine
+    restart: always
+    volumes:
+      - ./nginx/conf:/usr/local/openresty/nginx/conf
+      - ./nginx/sample.lua:/usr/local/luafiles/sample.lua
+    depends_on:
+      - redis
+    links:
+      - redis:redis
     ports:
       - '80:80'
-
-        #  nginx2:
-        #    image: openresty/openresty:xenial
-        #    ports:
-        #      - '80:80'
 
 volumes:
   db_data:
