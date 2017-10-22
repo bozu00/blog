@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 5 complete</title>
+    <!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+
+    </head>
+
+    <style>
+        article,
+        aside,
+        dialog,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #222222;
+            color: white;
+            margin: 0px;
+        }
+
+        nav ul {
+            display: flex;
+            /*flex-flow: row;*/
+            flex-flow: row;
+            margin: 0;
+            padding: 6px;
+            list-style-type: none;
+        }
+
+        nav li.login {
+            margin-left: auto;
+        }
+
+        nav li.hamburger {
+            /*align-self: flex-end;*/
+            margin-left: auto;
+        }
+
+        nav a {
+            display: block;
+            border-radius: 4px;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav li.menu a:hover {
+            background-color: #8cae47;
+        }
+
+        /*
+@media only screen and (max-width:550px) {
+    li.menu {
+        display: none;
+    }
+}
+    */
+
+        /* 最大のサイズが 550px */
+
+        li.menu {
+            display: none;
+        }
+
+        @media only screen and (min-width:550px) {
+            nav ul {
+                display: flex;
+                /*flex-flow: row;*/
+                flex-flow: row;
+
+                margin: 0;
+                padding: 6px;
+                list-style-type: none;
+            }
+            nav li.hamburger {
+                display: none;
+            }
+
+            li.menu {
+                display: inline-flex;
+            }
+        }
+
+        #ham-menu {
+            background-color: #fff;
+            /*メニュー背景色*/
+            box-sizing: border-box;
+            height: 100%;
+            padding: 10px 40px;
+            /*メニュー内左右上下余白*/
+            position: fixed;
+            right: -300px;
+            /*メニュー横幅 width と合わせる*/
+            top: 0;
+            transition: transform 0.2s ease 0s;
+            /*0.3s はアニメーションにかかる時間*/
+            width: 300px;
+            /*メニュー横幅*/
+            z-index: 1000;
+        }
+
+        #menu-background {
+            background-color: #333;
+            /*黒背景*/
+            display: none;
+            height: 100%;
+            opacity: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transition: all 0.1s ease 0s;
+            /*0.3s はアニメーションにかかる時間*/
+            width: 100%;
+            z-index: -1;
+        }
+
+        #menu-icon {
+            /*アイコン部分背景色*/
+            /*左下角丸*/
+            /*アイコン（フォント）色*/
+            cursor: pointer;
+            transition: all 0.03s ease-out 0s;
+            /*0.3s はアニメーションにかかる時間*/
+            z-index: 1000;
+        }
+
+        #menu-cb {
+            display: none;
+            /*チェックボックス本体は消しておく*/
+        }
+
+        #menu-cb:checked~#ham-menu,
+        #menu-cb:checked~#menu-icon {
+            transform: translate(-300px);
+            /*メニュー本体横幅 width と合わせる*/
+        }
+
+        #menu-cb:checked~#menu-background {
+            opacity: 0.5;
+            z-index: 999;
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="regular">
+        <ul>
+            <li class="logo"><a>logo</a></li>
+            <li class="menu"><a href="home.html">Home</a></li>
+            <li class="menu"><a href="about.html">About</a></li>
+            <li class="menu"><a href="web.html">Web Design</a></li>
+            <li class="menu"><a href="column.html">Column</a></li>
+            <li class="menu login"><a href="login.html">log in</a></li>
+            <li class="hamburger">
+                <label id="menu-icon" for="menu-cb">
+                    <a><i class="fa fa-bars"></i></a>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <input id="menu-cb" type="checkbox" value="off" style="display: none">
+    <label id="menu-background" for="menu-cb"></label>
+    <div id="ham-menu">
+        <ul>
+
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web.html">Web Design</a></li>
+            <li><a href="column.html">Column</a></li>
+            <li><a href="login.html">log in</a></li>
+        </ul>
+    </div>
+    <p>test</p>
+
+</body>
+
+</html>

@@ -25,25 +25,52 @@ services:
     restart: always
     depends_on:
       - db
+      - session-redis
+      - domain-redis
+    links:
+      - session-redis:session-redis
+      - domain-redis:domain-redis
     ports:
       - "1323:1323"
 
-  redis:
+  session-redis:
     image: "redis:alpine"
     restart: always
+    #ports:
+    #  - "6379:6379"
+    expose:
+      - "6379"
+
+  domain-redis:
+    #image: "redis:alpine"
+    image: "redis:alpine"
+    restart: always
+    #command: sh -c "redis-server --daemonize yes && redis-cli -h domain-redis"
+    #command: redis-server --appendonly yes
+    command: redis-server
     ports:
       - "6379:6379"
     expose:
       - "6379"
 
+  redis-fixture:
+    image: "goodsmileduck/redis-cli:latest"
+    command: redis-cli -h domain-redis set bozublog.dev 1
+    depends_on:
+      - session-redis
+      - domain-redis
+    links:
+      - session-redis:session-redis
+      - domain-redis:domain-redis
+
   redisCommander:
     image: tenstartups/redis-commander
     restart: always
-    command: --redis-host redis
+    command: --redis-host domain-redis
     depends_on:
-      - redis
+      - domain-redis
     links:
-      - redis:redis
+      - domain-redis:domain-redis
     ports:
       - '8081:8081'
 
@@ -76,11 +103,10 @@ services:
     restart: always
     volumes:
       - ./nginx/conf:/usr/local/openresty/nginx/conf
-      - ./nginx/sample.lua:/usr/local/luafiles/sample.lua
     depends_on:
-      - redis
+      - domain-redis
     links:
-      - redis:redis
+      - domain-redis:domain-redis
     ports:
       - '80:80'
 
