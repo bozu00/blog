@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<title>HTML 5 complete</title>
-<!--[if IE]>
+    <meta charset="utf-8" />
+    <title>HTML 5 complete</title>
+    <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
 <![endif]-->
-<style>
-  article, aside, dialog, figure, footer, header,
-  hgroup, menu, nav, section { display: block; }
-</style>
+
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+
 </head>
+
 <body>
-<p>Hello World</p>
-  <div class="container">
-    <header class="header">header</header>
-    <main   class="main"  >main</main>
-    <aside  class="aside" >aside</aside>
-    <nav    class="nav"   >nav</nav>
-    <footer class="footer">footer</footer>
-  </div>
+    <header id="header">
+        <ul id="header--horizon">
+            <li class=""><a href="/">logo</a></li>
+            <li class="header__menu"><a class="header__link--hover" href="home.html">Home</a></li>
+            <li class="header__menu"><a class="header__link--hover" href="about.html">About</a></li>
+            <li class="header__menu"><a class="header__link--hover" href="web.html">Web Design</a></li>
+            <li class="header__menu"><a class="header__link--hover" href="column.html">Column</a></li>
+            <li class="header__menu header__menu--right"><a class="c-header--hover" href="login.html">log in</a></li>
+            <li class="header__hamburger">
+                <label class="header__hamburger__icon" for="header__menu__checkbox">
+                    <a><i class="fa fa-bars"></i></a>
+                </label>
+            </li>
+        </ul>
+
+
+        <input id="header__menu__checkbox" type="checkbox" value="off" style="display: none">
+        <label id="menu-background" for="header__menu__checkbox"></label>
+
+
+        <div id="ham-menu">
+            <ul id="header--vertical">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="column.html">Column</a></li>
+                <li><a href="login.html">log in</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <main id="main">main</main>
+    <aside id="aside">aside</aside>
+    <nav id="nav">nav</nav>
+
+    <footer id="footer">footer</footer>
 </body>
+
 </html>
-
-
-
