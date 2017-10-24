@@ -81,7 +81,7 @@ li.header__hamburger  {
 }
 
 
-#ham-menu {
+#header--vertical {
     background-color: black;
     /*メニュー背景色*/
     box-sizing: border-box;
@@ -99,6 +99,7 @@ li.header__hamburger  {
     z-index: 1000;
 }
 
+
 #menu-background {
     background-color: #333;
     /*黒背景*/
@@ -114,7 +115,7 @@ li.header__hamburger  {
     z-index: -1;
 }
 
-#header__menu__checkbox:checked~#ham-menu, #header__menu__checkbox:checked~#menu-icon {
+#header__menu__checkbox:checked~#header--vertical {
     transform: translate(-300px);
     /*メニュー本体横幅 width と合わせる*/
 }
@@ -130,6 +131,8 @@ li.header__hamburger  {
  *
  *
  * ***************************/
+
+
 
 #main {
     background-color: azure;
@@ -169,6 +172,7 @@ text-decoration: none;
  */
 
 
+/*
 nav li.login {
     margin-left: auto;
 }
@@ -177,6 +181,7 @@ nav li.hamburger {
     /*align-self: flex-end;*/
     margin-left: auto;
 }
+*/
 
 
 @media only screen and (min-width:550px) {
