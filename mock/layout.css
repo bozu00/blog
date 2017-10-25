@@ -100,7 +100,7 @@ li.header__hamburger  {
 }
 
 
-#menu-background {
+#header__menu__background {
     background-color: #333;
     /*黒背景*/
     display: none;
@@ -120,7 +120,7 @@ li.header__hamburger  {
     /*メニュー本体横幅 width と合わせる*/
 }
 
-#header__menu__checkbox:checked~#menu-background {
+#header__menu__checkbox:checked~#header__menu__background {
     opacity: 0.5;
     z-index: 999;
     display: block;
@@ -128,77 +128,196 @@ li.header__hamburger  {
 
 
 /* ***************************
- *
- *
+ * main
  * ***************************/
 
+#main__wrapper {
+    background-color: wheat;
+}
+#main-contents {
+    display: flex;           /* flexコンテナ化 */
+    flex-direction: column;  /* ボックスを縦並びに */
+    background-color: skyblue;
+    padding: 10px;
+    margin: 0 auto;  
+}
 
-
-#main {
+#main { 
+    order: 1;
     background-color: azure;
 }
 
 #aside {
+    order: 2;
     background-color: bisque;
 }
 
 #nav {
+    order: 3;
     background-color: beige;
 }
 
+@media only screen and (min-width:550px) {
+    #main-contents {
+        flex-direction: row;  /* ボックスを縦並びに */
+        width: 80%;
+    }
 
-#footer {
+    #main {
+        order: 2;
+        width: 60%; 
+    }
+
+    #aside {
+        order: 3;
+        width: 25%; 
+    }
+
+    #nav {
+        order: 1;
+        width: 15%; 
+    }
+}
+
+/*** *********************************************************
+ *** ***  aside
+ *** *********************************************************/
+
+.ranking__item__wrapper {
+    display: flex;
+    flex-flow: row;
+    height: 60px;
+
+    margin: 2px 0;
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.ranking__item__info {
+    vertical-align: middle;
+
+    display: flex;
+    flex-flow: row;
+}
+
+.ranking__item__thumbnail {
+    margin-left: auto;
+}
+
+.ranking__item__title {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+img.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-left: auto;
+}
+
+
+
+
+/* ***************************
+ * footer
+ * ***************************/
+
+#footer__wrapper {
+    color: gray;
+}
+
+#footer__wrapper {
     background-color: darkseagreen;
 }
 
-
-/*
-a.c-header--hover:hover {
-background-color: #8cae47;
-}
- */
-
-
-
-
-/*
-a.c-header__link {
-display: block;
-border-radius: 4px;
-padding: 12px 24px;
-color: white;
-text-decoration: none;
-}
- */
-
-
-/*
-nav li.login {
-    margin-left: auto;
+#footer {
+    background-color: mistyrose;
+    display: flex;           /* flexコンテナ化 */
+    flex-direction: column;  /* ボックスを縦並びに */
+    padding: 10px;
+    margin: 0 auto;  
 }
 
-nav li.hamburger {
-    /*align-self: flex-end;*/
-    margin-left: auto;
-}
-*/
+#footer__logo {
+    order: 3;
+    background-color: lemonchiffon;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+#media-info {
+    order: 2;
+    background-color: lightsteelblue;
+    padding: 10px;
+}
+
+#site-map {
+    order: 1;
+    background-color: seashell;
+    padding: 10px;
+}
+
+img.logo {
+    width: 100%;
+    object-fit: contain;
+}
+
+#footer__logo__logo {
+    background-color: white;
+
+}
 
 @media only screen and (min-width:550px) {
-    nav ul {
-        display: flex;
-        /*flex-flow: row;*/
-        flex-flow: row;
-
-        margin: 0;
-        padding: 6px;
-        list-style-type: none;
-    }
-    nav li.hamburger {
-        display: none;
+    #footer {
+        flex-direction: row;  /* ボックスを縦並びに */
+        min-height: 300px; 
+        width: 80%;
     }
 
-    li.menu {
-        display: inline-flex;
+    #footer__logo {
+        order: 1;
+        width: 30%; 
     }
+
+    #media-info {
+        order: 2;
+        width: 35%; 
+    }
+
+    #site-map {
+        order: 3;
+        width: 35%; 
+    }
+}
+
+
+
+
+ul.footer__list {
+    padding: 6px;
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+li.footer__list__list {
+    margin: 6px;
+}
+
+ul.footer__list a {
+    text-decoration: none;
+    color: gray;
+}
+
+p.footer__list__title {
+}
+
+#last-footer {
+    padding: 5px;
+    text-align: center; 
 }
