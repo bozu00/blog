@@ -127,29 +127,82 @@ li.header__hamburger  {
 }
 
 
+/*
+#header__breadcrumb {
+    display: flex;
+    flex-flow: column;
+    flex-direction: row; 
+}
+*/
+
+
+#header__breadcrumb__ul {
+    display: inline-flex;
+}
+
+.header__breadcrumb__list {
+    font-size: 0.5em;
+    font-weight: bold;
+}
+.header__breadcrumb__link {
+    text-decoration: none;
+    color: gray;
+}
+
+li.header__breadcrumb__list:after{/* >を表示*/
+  content: '>';
+  padding: 0 3px;
+  color: #555;
+}
+li.header__breadcrumb__list:last-child:after{
+  content: '';
+}
+
+.header__breadcrumb__list a:hover {
+    text-decoration: underline;
+}
+
+#header__breadcrumb__ul li:first-child {
+    margin-left: 5px;
+}
+
+#header__breadcrumb__ul li:first-child a:before{/*家アイコン*/
+  font-family: FontAwesome;
+  content: '\f015';
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #2e7fea;
+}
+
+
+
+@media only screen and (min-width:550px) {
+}
+
+
 /* ***************************
  * main
  * ***************************/
 
 #main__wrapper {
-    background-color: wheat;
+    background-color: whitesmoke;
 }
 #main-contents {
     display: flex;           /* flexコンテナ化 */
     flex-direction: column;  /* ボックスを縦並びに */
-    background-color: skyblue;
+    background-color: ivory;
+    background-color: ghostwhite;
     padding: 10px;
     margin: 0 auto;  
 }
 
 #main { 
     order: 1;
-    background-color: azure;
+    background-color: white;
 }
 
 #aside {
     order: 2;
-    background-color: bisque;
 }
 
 #nav {
@@ -179,14 +232,32 @@ li.header__hamburger  {
     }
 }
 
+
+
+.main__contents {
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+
 /*** *********************************************************
  *** ***  aside
  *** *********************************************************/
 
+.ranking {
+    margin: 5px 0px;
+    background-color: white;
+    padding: 10px 0px;
+}
+
 .ranking__item__wrapper {
     display: flex;
     flex-flow: row;
-    height: 60px;
+    height: 70px;
 
     margin: 2px 0;
     background: #f4f4f4;
@@ -195,17 +266,19 @@ li.header__hamburger  {
 }
 
 .ranking__item__info {
-    vertical-align: middle;
-
-    display: flex;
-    flex-flow: row;
+    padding: 5px;
 }
 
 .ranking__item__thumbnail {
     margin-left: auto;
 }
 
+
+.ranking__item__ranking {
+    font-size: 0.8em;
+}
 .ranking__item__title {
+    font-size: 0.8em;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -213,12 +286,43 @@ li.header__hamburger  {
 
 img.thumbnail {
     width: 60px;
-    height: 60px;
+    height: 100%;
     object-fit: cover;
     margin-left: auto;
 }
 
+h3.ranking__name:first-letter {
+    font-size: 1.5em;
+    color: #7172ac;
+}
+/*
+h3.ranking__name {
+    position: relative;
+    padding: 0.6em;
+    background: -webkit-repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
+    background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
+    border-radius: 7px;
+}
 
+h3.ranking__name:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid #ffebbe;
+    width: 0;
+    height: 0;
+}
+*/
+h3.ranking__name {
+color: #6cb4e4;
+padding: 0.25em;
+border-top: solid 2px #6cb4e4;
+border-bottom: solid 2px #6cb4e4;
+background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
 
 
 /* ***************************
@@ -238,6 +342,7 @@ img.thumbnail {
     display: flex;           /* flexコンテナ化 */
     flex-direction: column;  /* ボックスを縦並びに */
     padding: 10px;
+    font-size: 0.8em;
     margin: 0 auto;  
 }
 
@@ -301,6 +406,7 @@ img.logo {
 
 ul.footer__list {
     padding: 6px;
+    margin:0px;
     margin-left: 20px;
     list-style-type: none;
 }
@@ -314,7 +420,10 @@ ul.footer__list a {
     color: gray;
 }
 
-p.footer__list__title {
+.footer__list__title {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #last-footer {

@@ -10,7 +10,11 @@
 <![endif]-->
 
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <!-- 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+     -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+ 
     <link rel="stylesheet" type="text/css" href="layout.css" />
 
 </head>
@@ -51,16 +55,41 @@
     <div id="main__wrapper">
         <div id="main-contents">
             <main id="main">
-                main
+
+                <header id="header__breadcrumb">
+                    <ul id="header__breadcrumb__ul">
+                        <li class="header__breadcrumb__list" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="カテゴリーＵＲＬ" itemprop="url" class="header__breadcrumb__link">
+                                <span itemprop="title">カテゴリー名</span>
+                            </a>
+                        </li>
+                        <li class="header__breadcrumb__list" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="カテゴリーＵＲＬ" itemprop="url" class="header__breadcrumb__link">
+                                <span itemprop="title">カテゴリー名</span>
+                            </a>
+                        </li>
+                        <li class="header__breadcrumb__list" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="カテゴリーＵＲＬ" itemprop="url" class="header__breadcrumb__link">
+                                <span itemprop="title">カテゴリー名</span>
+                            </a>
+                        </li>
+                    </ul>
+                </header>
+
+                <div class="main__contents">
+                    <p>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
             </main>
             <aside id="aside">
                 <div class="ranking">
-                    <h3>ranking</h3>
+                    <h3 class="ranking__name">アクセスランキング</h3>
 
                     <div class="ranking__item">
-
                         <div class="ranking__item__wrapper">
                             <div class="ranking__item__info">
+                                <div class="ranking__item__ranking">1</div>
                                 <span class="ranking__item__title">ここに文ここに文ここに文章章章ここに文章</span>
                             </div>
                             <div class="ranking__item__thumbnail">
@@ -73,6 +102,7 @@
                     <div class="ranking__item">
                         <div class="ranking__item__wrapper">
                             <div class="ranking__item__info">
+                                <div class="ranking__item__ranking">2</div>
                                 <span class="ranking__item__title">ここに文ここに文ここに文章章章ここに文章</span>
                             </div>
                             <div class="ranking__item__thumbnail">
@@ -85,6 +115,7 @@
                     <div class="ranking__item">
                         <div class="ranking__item__wrapper">
                             <div class="ranking__item__info">
+                                <div class="ranking__item__ranking">2</div>
                                 <span class="ranking__item__title">ここに文ここに文ここに文章章章ここに文章</span>
                             </div>
                             <div class="ranking__item__thumbnail">
@@ -110,7 +141,7 @@
                 </div>
             </div>
             <div id="media-info">
-                <p class="footer__list__title" ><b>About Us</b></p>
+                <h5 class="footer__list__title" ><b>About Us</b></h5>
                 <ul class="footer__list">
                     <li class="footer__list__list"><a href="home.html">Home</a></li>
                     <li class="footer__list__list"><a href="about.html">About</a></li>
@@ -120,7 +151,7 @@
                 </ul>
             </div>
             <div id="site-map">
-                <p class="footer__list__title"><b>Menu</b></p>
+                <h5 class="footer__list__title"><b>Menu</b></h5>
                 <ul class="footer__list">
                     <li class="footer__list__list"><a href="home.html">Home</a></li>
                     <li class="footer__list__list"><a href="about.html">About</a></li>
