@@ -1,4 +1,7 @@
 
+body {
+    background-color: whitesmoke;
+}
 /* ***************************
  *  header
  * ***************************/
@@ -7,6 +10,10 @@
     background-color: black;
     margin: 0;
     color: white;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.22);
+      position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0px; 
 }
 
 #header a {
@@ -89,12 +96,12 @@ li.header__hamburger  {
     padding: 10px 40px;
     /*メニュー内左右上下余白*/
     position: fixed;
-    right: -300px;
+    right: -200px;
     /*メニュー横幅 width と合わせる*/
     top: 0;
     transition: transform 0.2s ease 0s;
     /*0.3s はアニメーションにかかる時間*/
-    width: 300px;
+    width: 200px;
     /*メニュー横幅*/
     z-index: 1000;
 }
@@ -116,7 +123,7 @@ li.header__hamburger  {
 }
 
 #header__menu__checkbox:checked~#header--vertical {
-    transform: translate(-300px);
+    transform: translate(-200px);
     /*メニュー本体横幅 width と合わせる*/
 }
 
@@ -127,13 +134,20 @@ li.header__hamburger  {
 }
 
 
-/*
 #header__breadcrumb {
-    display: flex;
-    flex-flow: column;
-    flex-direction: row; 
+    display: none;
 }
-*/
+
+@media only screen and (min-width:550px) {
+
+#header__breadcrumb {
+    display: block;
+    background-color: black;
+    border-top: solid 1px gray; 
+
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.22);
+    margin-bottom: 10px;
+}
 
 
 #header__breadcrumb__ul {
@@ -175,8 +189,26 @@ li.header__breadcrumb__list:last-child:after{
 }
 
 
+#header__breadcrumb__wrapper {
+    width: 80%;
+    margin: 0 auto;  
 
-@media only screen and (min-width:550px) {
+    display: flex;
+    flex-direction: row;
+}
+
+#header__breadcrumb__nav {
+    width: 15%;
+}
+#header__breadcrumb__main {
+    width: 60%;
+}
+#header__breadcrumb__aside {
+    width: 25%;
+}
+
+
+
 }
 
 
@@ -185,7 +217,6 @@ li.header__breadcrumb__list:last-child:after{
  * ***************************/
 
 #main__wrapper {
-    background-color: whitesmoke;
     padding: 10px 10px;
 }
 
@@ -233,8 +264,6 @@ li.header__breadcrumb__list:last-child:after{
         width: 15%; 
     }
 }
-
-
 
 .main__contents {
     padding: 0.5em 1em;
@@ -383,7 +412,7 @@ img.logo {
 @media only screen and (min-width:550px) {
     #footer {
         flex-direction: row;  /* ボックスを縦並びに */
-        min-height: 300px; 
+        min-height: 200px; 
         width: 80%;
     }
 
