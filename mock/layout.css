@@ -174,17 +174,16 @@ li.header__hamburger  {
 
     .header__breadcrumb__list {
         font-size: 0.5em;
-        font-weight: bold;
     }
     .header__breadcrumb__link {
         text-decoration: none;
-        color: gray;
+        color: ghostwhite;
     }
 
     li.header__breadcrumb__list:after{/* >を表示*/
       content: '>';
       padding: 0 3px;
-      color: #555;
+      color: ghostwhite;
     }
     li.header__breadcrumb__list:last-child:after{
       content: '';
@@ -203,7 +202,7 @@ li.header__hamburger  {
       content: '\f015';
       font-weight: normal;
       font-size: 1.1em;
-      color: #2e7fea;
+      color: #FBC6C6;
     }
 
 
@@ -260,7 +259,6 @@ li.header__hamburger  {
 
 #nav {
     order: 3;
-    background-color: beige;
 }
 
 @media only screen and (min-width:550px) {
@@ -393,16 +391,12 @@ background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, 
  * footer
  * ***************************/
 
-#footer__wrapper {
-    color: gray;
-}
 
 #footer__wrapper {
-    background-color: darkseagreen;
+    background-color: #83BDD9;
 }
 
 #footer {
-    background-color: mistyrose;
     display: flex;           /* flexコンテナ化 */
     flex-direction: column;  /* ボックスを縦並びに */
     padding: 10px;
@@ -412,7 +406,6 @@ background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, 
 
 #footer__logo {
     order: 3;
-    background-color: lemonchiffon;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -422,13 +415,11 @@ background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, 
 
 #media-info {
     order: 2;
-    background-color: lightsteelblue;
     padding: 10px;
 }
 
 #site-map {
     order: 1;
-    background-color: seashell;
     padding: 10px;
 }
 
@@ -437,10 +428,6 @@ img.logo {
     object-fit: contain;
 }
 
-#footer__logo__logo {
-    background-color: white;
-
-}
 
 @media only screen and (min-width:550px) {
     #footer {
@@ -493,4 +480,9 @@ ul.footer__list a {
 #last-footer {
     padding: 5px;
     text-align: center; 
+}
+
+#last-footer {
+    color: gray;
+    font-size: 0.8em;
 }
