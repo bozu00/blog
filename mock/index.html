@@ -1,62 +1,99 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
+    <head>
+        <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width">
-    <title>HTML 5 complete</title>
-    <!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <meta name="viewport" content="width=device-width">
+        <title>HTML 5 complete</title>
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
-<![endif]-->
+            <![endif]-->
 
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-     <!-- 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
-     -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
- 
-    <link rel="stylesheet" type="text/css" href="layout.css" />
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+            <!-- 
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+            -->
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 
-</head>
+            <link rel="stylesheet" type="text/css" href="layout.css" />
 
-<body>
-    <header id="header">
-        <div id="header__container">
-            <ul id="header--horizon">
-                <li class=""><a href="/">logo</a></li>
-                <li class="header__menu"><a class="header__link--hover" href="home.html">Home</a></li>
-                <li class="header__menu"><a class="header__link--hover" href="about.html">About</a></li>
-                <li class="header__menu"><a class="header__link--hover" href="web.html">Web Design</a></li>
-                <li class="header__menu"><a class="header__link--hover" href="column.html">Column</a></li>
-                <li class="header__menu header__menu--right"><a class="c-header--hover" href="login.html">log in</a></li>
-                <li class="header__hamburger">
-                    <label class="header__hamburger__icon" for="header__menu__checkbox">
-                        <a><i class="fa fa-bars"></i></a>
-                    </label>
-                </li>
+    </head>
+
+    <body>
+        <header id="header">
+            <div class="global-container">
+
+                <div id="header--horizon--left">
+                    <div class="pc-only-flex">
+                        <div  class="header__item">
+                            <form>
+                                <input type="text" maxlength="100" placeholder="キーワードで検索" class="form__textbox">
+                                <button type="submit" class="form__button">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <!--検索-->
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="header__item sp-only">
+                        <label class="header__hamburger__icon" for="header__search__checkbox">
+                            <a><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </label>
+                    </div>
+                </div>
+                <div id="header__horizon__center">
+                    <div id="header__logo">
+                        logo
+                    </div>
+                </div>
+
+                <div id="header--horizon--right">
+                    <div class="pc-only-flex flex-right">
+                        <div class="header__menu pc-only-flex flex-right"><a class="header__link--hover" href="login.html"> category</a></div>
+                        <div class="header__menu pc-only-flex flex-right"><a class="header__link--hover" href="login.html">log in</a></div>
+                    </div>
+
+                    <div class="sp-only flex-right">
+                        <div id="flex-right">
+                            <label class="header__hamburger__icon" for="header__menu__checkbox">
+                                <a><i class="fa fa-bars"></i></a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <input id="header__menu__checkbox" type="checkbox" value="off" style="display: none">
+            <label id="header__menu__background" for="header__menu__checkbox"></label>
+
+
+            <ul id="header--vertical">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="web.html">Web Design</a></li>
+                <li><a href="column.html">Column</a></li>
+                <li><a href="login.html">log in</a></li>
             </ul>
-        </div>
+        </header>
 
-
-        <input id="header__menu__checkbox" type="checkbox" value="off" style="display: none">
-        <label id="header__menu__background" for="header__menu__checkbox"></label>
-
-
-        <ul id="header--vertical">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="web.html">Web Design</a></li>
-            <li><a href="column.html">Column</a></li>
-            <li><a href="login.html">log in</a></li>
-        </ul>
-    </header>
-
-    <div id="header__breadcrumb">
-        <div id="header__breadcrumb__wrapper">
-            <div id= "header__breadcrumb__nav"></div>
-            <div id="header__breadcrumb__main">
+        <div id="header__breadcrumb">
+            <div class="global-container">
                     <ul id="header__breadcrumb__ul">
                         <li class="header__breadcrumb__list" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
                             <a href="カテゴリーＵＲＬ" itemprop="url" class="header__breadcrumb__link">
@@ -74,43 +111,57 @@
                             </a>
                         </li>
                     </ul>
-
             </div>
-            <div id= "header__breadcrumb__aside"></div>
         </div>
-    </div>
-    <div id="header__shadow"></div>
 
 
 
-    
-    <div id="main__wrapper">
-        <div id="main-contents">
-            <main id="main">
 
+        <main id="main">
 
-                <div class="main__contents">
-                            <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    <p>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+        <div class="wideview">
+            <section id="article__index" class="">
+                <div id="article__index__title">
+                    <h1>都内で美しい夕焼けを見たかったらココへ！！おすすめ夕焼け鑑賞スポット。</h1>
                 </div>
-            </main>
+
+                <div id="article__index__arthor">
+                    <div id="article__index__arthor__icon">
+                        <div class="frame" style="background: url('https://d17vjxfu0igzun.cloudfront.net/images/875199656312659b651e26223dd73851/190x190c/user_profile_photos/22/original-7a22a05c400f0de6e8b61287a1ff3881bf5619a2.jpg') center center no-repeat;"></div>
+                    </div>
+                    <div id="article__index__arthor__name"><span>author : sakura oda</span></div>
+                    <div id="article__index__arthor__date"><span>2017/12/01</span></div>
+                </div>
+
+                <div id="article__index__description">
+                    <p>そこで、今回は雨でも楽しめる都内の観光スポットをまとめてみました！ぜひ、参考にしてみてくださいね♪</p>
+                </div>
+                <div id="article__index__sns">
+                </div>
+            </section>
+        </div>
+
+        <div id="main__container">
+            <article id="article">
+                <div id="main__contents">
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </article>
+
+
             <aside id="aside">
                 <div class="ranking">
                     <h3 class="ranking__title">アクセスランキング</h3>
@@ -140,43 +191,43 @@
                 </div>
             </aside>
             <nav id="nav">
-                nav
             </nav>
-        </div>
-    </div>
 
-    <div id="footer__wrapper">
-        <footer id="footer">
-            <div id="footer__logo">
-                <div id="footer__logo__logo">
-                    <img class="logo" src="./logo.png" alt="ロゴ" title="メディアのロゴ">
+        </div>
+        </main>
+
+        <div id="footer__wrapper">
+            <footer id="footer">
+                <div id="footer__logo">
+                    <div id="footer__logo__logo">
+                        <img class="logo" src="./logo.png" alt="ロゴ" title="メディアのロゴ">
+                    </div>
                 </div>
-            </div>
-            <div id="media-info">
-                <h5 class="footer__list__title" ><b>About Us</b></h5>
-                <ul class="footer__list">
-                    <li class="footer__list__list"><a href="home.html">Home</a></li>
-                    <li class="footer__list__list"><a href="about.html">About</a></li>
-                    <li class="footer__list__list"><a href="web.html">Web Design</a></li>
-                    <li class="footer__list__list"><a href="column.html">Column</a></li>
-                    <li class="footer__list__list"><a href="login.html">log in</a></li>
-                </ul>
-            </div>
-            <div id="site-map">
-                <h5 class="footer__list__title"><b>Menu</b></h5>
-                <ul class="footer__list">
-                    <li class="footer__list__list"><a href="home.html">Home</a></li>
-                    <li class="footer__list__list"><a href="about.html">About</a></li>
-                    <li class="footer__list__list"><a href="web.html">Web Design</a></li>
-                    <li class="footer__list__list"><a href="column.html">Column</a></li>
-                    <li class="footer__list__list"><a href="login.html">log in</a></li>
-                </ul>
-            </div>
-        </footer>
-        <footer id="last-footer">
-            <span>Copyright© Kirakira, Inc. All Rights Reserved.</span>
-        </footer>
-    </div>
-</body>
+                <div id="media-info">
+                    <h5 class="footer__list__title" ><b>About Us</b></h5>
+                    <ul class="footer__list">
+                        <li class="footer__list__list"><a href="home.html">Home</a></li>
+                        <li class="footer__list__list"><a href="about.html">About</a></li>
+                        <li class="footer__list__list"><a href="web.html">Web Design</a></li>
+                        <li class="footer__list__list"><a href="column.html">Column</a></li>
+                        <li class="footer__list__list"><a href="login.html">log in</a></li>
+                    </ul>
+                </div>
+                <div id="site-map">
+                    <h5 class="footer__list__title"><b>Menu</b></h5>
+                    <ul class="footer__list">
+                        <li class="footer__list__list"><a href="home.html">Home</a></li>
+                        <li class="footer__list__list"><a href="about.html">About</a></li>
+                        <li class="footer__list__list"><a href="web.html">Web Design</a></li>
+                        <li class="footer__list__list"><a href="column.html">Column</a></li>
+                        <li class="footer__list__list"><a href="login.html">log in</a></li>
+                    </ul>
+                </div>
+            </footer>
+            <footer id="last-footer">
+                <span>Copyright© Kirakira, Inc. All Rights Reserved.</span>
+            </footer>
+        </div>
+    </body>
 
 </html>
