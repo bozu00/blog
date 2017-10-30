@@ -12,6 +12,13 @@ var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
   }
 
+  function next_slide() {
+    var img2 = new Image();
+    img2.src = "./math2.png?" + new Date().getTime();
+    img2.onload = function() {
+      ctx.drawImage(img2, 0, 0);
+    }
+  };
 
 
 

@@ -33,7 +33,7 @@ recorder.onstop = function(evt) {
 
 function record_save() {
   recorder.stop();
-}
+};
 
 const playbackVideo = document.getElementById('playback_video');
 let blobUrl = null;
