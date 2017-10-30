@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-        <h1>お絵かきソフト</h1>
+        <h1>教材3分動画メディア</h1>
         <div id="aaa">
             <div id="bbb">
                 <canvas id="canvas" width="640px" height="480px">残念ながらHTML5に対応していません</canvas>
@@ -154,12 +154,13 @@
         </div>
 
 
+    <audio></audio>
 
         <figure>
-          <p><button style="width:100px;" id="record_start" onclick="record_start()">録画開始</button>  <button style="width:100px;" onclick="record_save()">録画停止</button></p>
-          <video id="video" width="640px" height="480px" style="border: solid 1px;"></video><br />
+          <p><button style="width:100px;" id="record_start" onclick="record_start()">録画開始</button>  <button style="width:100px;" id="record_stop" onclick="record_save()">録画停止</button></p>
+          <video id="playback_video"  controls width="640px" height="480px" style="border: solid 1px;"></video><br />
+          <video id="video"  width="640px" height="480px" style="border: solid 1px;"></video><br />
           <caption>live preview</caption>
-          <video id="playback_video" width="640px" height="480px" style="border: solid 1px;"></video><br />
         </figure>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="./script.js"></script> 
