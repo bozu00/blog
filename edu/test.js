@@ -1,4 +1,5 @@
 
+var chunks = [];
 
 var canv = document.querySelector('canvas');
 //var video = document.querySelector('video');
@@ -11,14 +12,43 @@ video.play();
 
 recorder = new MediaRecorder(stream);
 
-recorder.addEventListener('dataavailable', onRecordingReady);
+// recorder.addEventListener('dataavailable', onRecordingReady);
+recorder.ondataavailable = function(evt) {
+  chunks.push(evt.data);
+};
 
 function onRecordingReady(e) {
-  var video = document.getElementById('video');
-  video.srcObject = e.data;
-  video.play();
+  chunks.push(e.data);
+  console.log(len(chunks));
 }
 
+function record_start() {
+  recorder.start(1000); 
+}
+
+recorder.onstop = function(evt) {
+    recorder = null;
+    playRecorded();
+};
+
+function record_save() {
+  recorder.stop();
+}
+
+const playbackVideo = document.getElementById('playback_video');
+let blobUrl = null;
+
+function playRecorded() {
+  const videoBlob = new Blob(chunks, { type: "video/webm" });
+  blobUrl = window.URL.createObjectURL(videoBlob);
+
+  if (playbackVideo.src) {
+    window.URL.revokeObjectURL(playbackVideo.src); // 解放
+    playbackVideo.src = null;
+  }
+  playbackVideo.src = blobUrl;
+  playbackVideo.play();
+}
 
 
 /*
