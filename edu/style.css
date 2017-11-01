@@ -1,4 +1,21 @@
 
+#leftbar {
+    width: 20%;
+    height: 100%;
+}
+
+#screen {
+    width: 80%;
+    height: 80%;
+}
+
+#slides {
+    width: 80%;
+    height: 20%;
+}
+
+
+
 body {
     text-align:center;
     width: 1200px;
