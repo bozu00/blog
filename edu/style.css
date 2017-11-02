@@ -1,17 +1,35 @@
+#editor {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: auto auto;
+}
 
+#upper {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 80%;
+}
+
+#canvas {
+    width: 80vw;
+    height: 45vw
+}
 #leftbar {
-    width: 20%;
-    height: 100%;
+    flex-basis: 20%;
+    background-color: gray;
 }
 
 #screen {
-    width: 80%;
-    height: 80%;
+    flex-basis: 80%;
+    background-color: skyblue;
 }
 
-#slides {
-    width: 80%;
-    height: 20%;
+#downer {
+    display: flex;
+    background-color: ivory;
+    flex-basis: 20%;
 }
 
 
