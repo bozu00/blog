@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+        <title>お絵かきソフト</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="editor">
+            <div id="upper">
+                <div id="leftbar">
+                    <div id="">
+                        <ul>
+                            <li style="background-color:DODGERBLUE"></li>
+                            <li style="background-color:LIGHTSKYBLUE"></li>
+                            <li style="background-color:MEDIUMSEAGREEN"></li>
+                            <li style="background-color:FORESTGREEN"></li>
+                            <li style="background-color:LAWNGREEN"></li>
+                            <li style="background-color:VIOLET"></li>
+                            <li style="background-color:YELLOW"></li>
+                            <li style="background-color:ORANGE"></li>
+                            <li style="background-color:TOMATO"></li>
+                            <li style="background-color:LIGHTPINK"></li>
+                            <li style="background-color:RED"></li>
+                            <li style="background-color:black"></li>
+                            <li style="background-color:DimGrey"></li>
+                            <li style="background-color:LightGray"></li>
+                            <li style="background-color:white"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="screen">
+                    <canvas id="canvas" width="640px" height="360px">残念ながらHTML5に対応していません</canvas>
+                </div>
+            </div>
+            <div id="downer">
+                <div id="slides">
+                    slides
+                </div>
+            </div>
+        </div>
+        <h1>教材3分動画メディア</h1>
+        <div id="aaa">
+            <div id="bbb">
+                <!-- <canvas id="canvas" width="640px" height="480px">残念ながらHTML5に対応していません</canvas> -->
+            </div>
+            <div id="ccc">
+                <ul>
+                    <li style="background-color:DODGERBLUE"></li>
+                    <li style="background-color:LIGHTSKYBLUE"></li>
+                    <li style="background-color:MEDIUMSEAGREEN"></li>
+                    <li style="background-color:FORESTGREEN"></li>
+                    <li style="background-color:LAWNGREEN"></li>
+                    <li style="background-color:VIOLET"></li>
+                    <li style="background-color:YELLOW"></li>
+                    <li style="background-color:ORANGE"></li>
+                    <li style="background-color:TOMATO"></li>
+                    <li style="background-color:LIGHTPINK"></li>
+                    <li style="background-color:RED"></li>
+                    <li style="background-color:black"></li>
+                    <li style="background-color:DimGrey"></li>
+                    <li style="background-color:LightGray"></li>
+                    <li style="background-color:white"></li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="item">
+            <div id="item1">
+                <p>線の太さ<input type="range" min="0" max="100" value="10" id="lineWidth"><span id="lineNum">10</span></p>
+                <p>透 明 度<input type="range" min="0" max="100" value="100" id="alpha"><span id="alphaNum">100</span></p>
+            </div>
+
+            <div id="item2">
+                <p><button style="margin-bottom:10px;" id="undo">１つ前の状態に戻す</button></p>
+                <p><button style="width:100px;" id="clear">消去</button>  <button style="width:100px;" onclick="save()">保存</button></p>
+            </div>
+            <div>
+                <p><button style="margin-bottom:10px;" id="next_slide"  onclick="next_slide()">次のスライド</button></p>
+            </div>
+        </div>
+
+
+    <audio></audio>
+
+        <figure>
+          <p><button style="width:100px;" id="record_start" onclick="record_start()">録画開始</button>  <button style="width:100px;" id="record_stop" onclick="record_save()">録画停止</button></p>
+          <video id="playback_video"  preload="metadata" controls width="640px" height="480px" style="border: solid 1px;"></video><br />
+          <video id="video" controls width="640px" height="480px" style="border: solid 1px;"></video><br />
+          <caption>live preview</caption>
+        </figure>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="./editor.js"></script> 
+        <script src="./test.js"></script> 
+    </body>
+</html>
