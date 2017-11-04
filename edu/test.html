@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-        <title>お絵かきソフト</title>
+        <title>動画作成画面</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
@@ -53,8 +54,13 @@
                         </div>
                     </div>
                     <div id="screen">
-                        <canvas id="canvas" width="960" height="540px">残念ながらHTML5に対応していません</canvas>
+                        <canvas id="canvas" width="640" height="360">残念ながらHTML5に対応していません</canvas>
+
+                        <div id="playback_modal">
+                            <video id="playback_modal_video" preload="metadata" controls width="640" height="360" style="display:none;"></video>
+                        </div>
                     </div>
+
                 </div>
                 <div id="downer">
                     <div id="slides">
@@ -83,7 +89,9 @@
         </div>
 
 
+        <!-- 
             <video id="playback_video"  preload="metadata" controls width="640px" height="480px" style="border: solid 1px;"></video><br />
+            -->
 
         <!-- 
         <figure>

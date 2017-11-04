@@ -2,12 +2,18 @@
 
 var chunks = [];
 const playbackVideo = document.getElementById('playback_video');
+const playbackModalVideo = document.getElementById('playback_modal_video');
 const playbackVideoSource = document.getElementById('playback_video_source');
+const screen = document.getElementById('screen');
 var canv = document.querySelector('canvas');
 var stream = canv.captureStream(60);
-let blobUrl = null;
+var blobUrl = null;
 var recorder = null;
+
 convertedStream = null; // deleted
+
+var canvas_width = null;
+var canvas_height = null;
 
 var videoBlob = null;
 var record_start_button = document.getElementById('record_start');
@@ -54,7 +60,6 @@ s = new Slides( [
         new  Slide( "./idea3.jpg" ),
         new  Slide( "./idea4.jpg" ),
         new  Slide( "./idea5.jpg" ),
-        new  Slide( "./idea6.jpg" ),
 ]);        
 
 var vm = new Vue({
@@ -83,13 +88,7 @@ var vm = new Vue({
             console.log("leave");
             event.currentTarget.classList.remove('over');
             event.stopPropagation();
-            //event.dataTransfer.dropEffect = 'move';
         },                            
-        // skipDragOverHandler: function(event) {
-        //     if (! event.currentTarget.parentNode.id == "slides"){
-        //         event.preventDefault();
-        //     }
-        // },
 
         dropHandler: function(event) {
             console.log("drop");
@@ -106,17 +105,34 @@ var vm = new Vue({
 });
 
 
+function calculate_screen_size() {
+    canvas_width  = screen.clientWidth;
+    canvas_height = canvas_width / 16 * 9;
+    if (canvas_height >= screen.clientHeight) {
+        canvas_height = screen.clientHeight;
+        canvas_width  = canvas_height / 9 * 16;
+    }
+    canv.height = canvas_height;
+    canv.width  = canvas_width;
+    playbackModalVideo.height = canvas_height;
+    playbackModalVideo.width  = canvas_width;
+}
 
 window.onload = function () {
 
 
+    console.log(screen.clientWidth);
+    console.log(screen.clientHeight);
+    calculate_screen_size();
+    console.log(screen.clientWidth);
+    console.log(screen.clientHeight);
 
     var img = new Image();
     img.src = "./idea.jpg?" + new Date().getTime();
     console.log(img)
         /* 画像が読み込まれるのを待ってから処理を続行 */
         img.onload = function() {
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0, canvas_width, canvas_height);
         }
 
     var new_slide = document.querySelector('#new_slide');
@@ -177,22 +193,24 @@ function playRecorded() {
     var videofile = new File([videoBlob], "test.webm");
     localStorage['video'] = videofile;
 
+    canv.style.display = "none"
+    playbackModalVideo.style.display = "flex";
 
-    if (playbackVideo.src) {
+    if (playbackModalVideo.src) {
         window.URL.revokeObjectURL(playbackVideo.src); // 解放
         playbackVideo.src = null;
     }
 
-    playbackVideo.loadedmetadata = function(e) {
+    playbackModalVideo.loadedmetadata = function(e) {
         console.log("loadedmetadata");
         console.log(e);
     }
 
     blobUrl = window.URL.createObjectURL(videofile);
-    playbackVideo.src = blobUrl;
+    playbackModalVideo.src = blobUrl;
 
-    playbackVideo.load();
-    playbackVideo.play();
+    playbackModalVideo.load();
+    playbackModalVideo.play();
 
 
     console.group('metadata読み込み後');
@@ -203,7 +221,7 @@ function playRecorded() {
     link.href = blobUrl;
     link.download = "video.webm";
     link.innerHTML = "Click here to download the file";
-    document.body.appendChild(link);
+    screen.appendChild(link);
 
 
 }
@@ -216,7 +234,7 @@ function record_start() {
     console.log(img)
     /* 画像が読み込まれるのを待ってから処理を続行 */
     img.onload = function() {
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, canvas_width, canvas_height);
     }
 }
 
@@ -227,58 +245,21 @@ function next_slide() {
     console.log(vm.slides.slides[vm.currenct_slide_index].src);
     next_image.src = vm.slides.slides[vm.currenct_slide_index].src + "?" + new Date().getTime();
     next_image.onload = function() {
-        ctx.drawImage(next_image, 0, 0);
+        ctx.drawImage(next_image, 0, 0, canvas_width, canvas_height);
     }
 };
 
+function previous_slide() {
+    var next_image = new Image();
+    vm.currenct_slide_index -= 1;
+    console.log(vm.currenct_slide_index);
+    console.log(vm.slides.slides[vm.currenct_slide_index].src);
+    next_image.src = vm.slides.slides[vm.currenct_slide_index].src + "?" + new Date().getTime();
+    next_image.onload = function() {
+        ctx.drawImage(next_image, 0, 0, canvas_width, canvas_height);
+    }
+};
 
-// ------ DnD handlers
-// 
-//  function dragStartHandler(event) {
-//      event.stopPropagation();
-//      dragPosition = Number(event.currentTarget.id);
-//  }
-//  
-//  function dragOverHandler(event) {
-//      event.currentTarget.classList.add('over');
-//      event.dataTransfer.dropEffect = 'move';
-//      event.stopPropagation();
-//      event.preventDefault(); //　必要!! これがないとdropイベントがハッカしない
-//      return false;
-//  }
-//  
-//  function dragLeaveHandler(event) {
-//      //event.stopPropagation();
-//      event.currentTarget.classList.remove('over');
-//      event.stopPropagation();
-//      //event.dataTransfer.dropEffect = 'move';
-//  }
-//  
-//  function skipDragOverHandler(event) {
-//      if (! event.currentTarget.parentNode.id == "slides"){
-//          event.preventDefault();
-//      }
-//  }
-//  
-//  
-//  function dropHandler(event) {
-//      console.log("drop");
-//      event.stopPropagation();
-//      // var dropElement = event.currentTarget;
-//      dropPosition = Number(event.currentTarget.id);
-//      // console.log(dropElement.id);
-//      // dragElement.innerHTML = dropElement.innerHTML;
-//      // dropElement.innerHTML = event.dataTransfer.getData('dragItem');
-//      // tmp = vm.slides[dropElement.id];
-//      //vm.slides.splice(1, 0, tmp);  //追加
-//      //vm.slides.splice(tmp - 1, 1); //削除
-//      vm.slides.sort(dragPosition, dropPosition);
-//      dragPosision = null;
-//      dropPosision = null;
-//      event.currentTarget.classList.remove("over");
-//  }
-
-// --- new slide DnD
 
 function newSlideDragOverHandler(event) {
     event.preventDefault(); //　必要!! これがないとdropイベントがハッカしない
@@ -300,7 +281,7 @@ function newSlideDropHandler(event) {
         fileReader.onload = function( event ) {
             var loadedImageUri = event.target.result;
             console.log(loadedImageUri);
-            vm.slides.addBySrc(loadedImageUri)
+            vm.slides.addBySrc(loadedImageUri);
         };
         fileReader.readAsDataURL( files[i] );
     }
