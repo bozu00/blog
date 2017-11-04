@@ -158,7 +158,7 @@ window.onload = function () {
                 convertedStream.addTrack(audioStream.getAudioTracks()[0]);
 
                 var options = {
-                    audioBitsPerSecond : 128000,
+                    audioBitsPerSecond : 2500000,
                     videoBitsPerSecond : 2500000,
                     mimeType : 'video/webm'
                 }
@@ -209,7 +209,11 @@ function playRecorded() {
     blobUrl = window.URL.createObjectURL(videofile);
     playbackModalVideo.src = blobUrl;
 
+    //一回おっきなcurrentTimeで再生してから、0から再生する (chromeのみだけど、再生時間が表示される)
+    playbackModalVideo.currentTime = 1e101;
     playbackModalVideo.load();
+    playbackModalVideo.play();
+    playbackModalVideo.currentTime = 0;
     playbackModalVideo.play();
 
 
